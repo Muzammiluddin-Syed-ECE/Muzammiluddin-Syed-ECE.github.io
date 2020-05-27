@@ -156,13 +156,13 @@ function component(width, height, color, x, y, id) {
                     if (speed > 0){
                     
                     
-                    this.speedX -= (speed * vCollisionNorm.x);
-                    this.speedY -= (speed * vCollisionNorm.y);
-                    colPiece.speedX += (speed * vCollisionNorm.x);
-                    colPiece.speedY += (speed * vCollisionNorm.y);
-                    
-                    colPiece.wallCollision();
-                    this.wallCollision();
+                        this.speedX -= (speed * vCollisionNorm.x);
+                        this.speedY -= (speed * vCollisionNorm.y);
+                        colPiece.speedX += (speed * vCollisionNorm.x);
+                        colPiece.speedY += (speed * vCollisionNorm.y);
+
+                        colPiece.wallCollision();
+                        this.wallCollision();
                     }
                     if (this.infected || colPiece.infected){
                         this.infect();
