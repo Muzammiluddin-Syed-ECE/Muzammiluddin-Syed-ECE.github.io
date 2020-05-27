@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-canvas{
-    border: 10px solid #f1f1f1;
-}    
-</style>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript" src="Muzammiluddin-Syed-ECE.github.io/scripts.js"></script>
-</head>
-<body onload="startGame()">
-    <p id="numberOfInfected">Click the button to display an alert box.</p>
-
-<button>Try it</button>
-    <p id="test">hey</p>
-<canvas id="myCanvas" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.</canvas>
-
-<script>
-    /*
-
 var myGamePiece = [];
 var myInfectedLine;
 var myDeathLine;
@@ -231,7 +208,7 @@ function component(width, height, color, x, y, id) {
                         colPiece.x += colPiece.speedX;
                         colPiece.y += colPiece.speedY;
                     }
-                    //*//*
+                    */
 
                     this.collision = false;
                     colPiece.collision = false;
@@ -313,10 +290,4 @@ function updateGraphArea() {
     myDeathLine.update();
     myUntouchedLine.newPos();
     myUntouchedLine.update();
-} */
-
-
-</script>
-    <script type="text/javascript" src="Muzammiluddin-Syed-ECE.github.io/scripts.js"></script>
-    </body>
-</html>
+} 
