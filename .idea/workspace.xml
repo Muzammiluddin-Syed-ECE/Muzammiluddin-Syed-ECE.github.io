@@ -17,12 +17,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1cW05BcGuHYfzzjV7DdGnceG8pe" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590628856255</updated>
       <workItem from="1590628861695" duration="28000" />
-      <workItem from="1590629551989" duration="1759000" />
+      <workItem from="1590629551989" duration="7173000" />
     </task>
     <servers />
   </component>

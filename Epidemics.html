@@ -19,7 +19,7 @@ canvas{
 Your browser does not support the HTML5 canvas tag.</canvas>
 <p>this worked</p>
 <script>
-    /*
+
 
 var myGamePiece = [];
 var myInfectedLine;
@@ -35,13 +35,13 @@ var numDead = 0;
 var numUpdated = 0;
     //function that starts game
 function startGame() {
-    var count;
+    let count;
     for (count = 0; count < numPieces; count++){
-        myGamePiece[count] = new component( 15, 15, "#808080", (count%32)*32, (Math.floor(count/32)*32)%1000, count);
+        myGamePiece[count] = new Component( 15, 15, "#808080", (count%32)*32, (Math.floor(count/32)*32)%1000, count);
     }
-    myInfectedLine = new linecomponent("red", 1, myGraphArea.canvas.height, 0);
-    myDeathLine = new linecomponent("black", 1, myGraphArea.canvas.height, 1);
-    myUntouchedLine = new linecomponent("#808080", 1, myGraphArea.canvas.height - numPieces, 2);
+    myInfectedLine = new Linecomponent("red", 1, myGraphArea.canvas.height, 0);
+    myDeathLine = new Linecomponent("black", 1, myGraphArea.canvas.height, 1);
+    myUntouchedLine = new Linecomponent("#808080", 1, myGraphArea.canvas.height - numPieces, 2);
     myGamePiece[0].x = 20;
     myGamePiece[0].y = 100;
     myGamePiece[1].x = 200;
@@ -71,7 +71,7 @@ var myGameArea = {
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-}
+};
 
 var myGraphArea = {
     canvas: document.getElementById("myCanvas"),
@@ -84,18 +84,18 @@ var myGraphArea = {
     clear : function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-}
-function linecomponent(color, x, y, mode){
+};
+function Linecomponent(color, x, y, mode){
     this.color = color;
     this.x = x;
     this.y = y;
     this.mode = mode;
     this.update = function() {
-        ctx = myGraphArea.context;
+        let ctx = myGraphArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, 5, 5);
         
-    }
+    };
     this.newPos = function() {
         document.getElementById("test").innerHTML = "halfway-2";
         numUpdated++;
@@ -114,11 +114,11 @@ function linecomponent(color, x, y, mode){
         document.getElementById("test").innerHTML = "halfway-3";
     }
 }
-function component(width, height, color, x, y, id) {
+function Component(width, height, color, x, y, id) {
     this.width = width;
     this.height = height;
-    this.speedX = 0.5-(Math.random()*1);
-    this.speedY = 0.5-(Math.random()*1);
+    this.speedX = 0.5 - (Math.random() * 1);
+    this.speedY = 0.5 - (Math.random() * 1);
     this.x = x;
     this.y = y;
     this.id = id;
@@ -140,16 +140,16 @@ function component(width, height, color, x, y, id) {
         if(this.infected){
             this.deathTimer += 25;
         }
-        if(this.deathTimer > 14000 && this.infected && !this.dead){
+        if(Math.random() < this.chanceOfDeath && this.deathTimer > 14000 && this.infected && !this.dead){
             this.death();
         }
-        ctx = myGameArea.context;
+        let ctx = myGameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
         
-    }
+    };
     this.wallCollision = function(){
-        var col = true;
+        let col = true;
         if ((this.x >= (myGameArea.canvas.width - this.width)) && this.speedX > 0){
             this.speedX = -1 * this.speedX;
             
@@ -163,13 +163,13 @@ function component(width, height, color, x, y, id) {
         if (this.y <= 0 && this.speedY < 0){
             this.speedY = -1 * this.speedY;
         } 
-    }
+    };
     this.blockCollision = function(){
-        for (count = 0; count<numPieces; count++){
+        for (let count = 0; count<numPieces; count++){
             if (count != this.id && !myGamePiece[count].dead){
                 if((Math.abs(this.x - myGamePiece[count].x)<= this.width) && (Math.abs(this.y - myGamePiece[count].y))<= this.height) {
-                    var colliding = false;
-                    colPiece = myGamePiece[count];
+                    let colliding = false;
+                    let colPiece = myGamePiece[count];
                     let vCollision = {x: colPiece.x - this.x, y: colPiece.y - this.y};
                     let distance = Math.sqrt((colPiece.x-this.x)*(colPiece.x-this.x) + (colPiece.y-this.y)*(colPiece.y-this.y));
                     let vCollisionNorm = {x: vCollision.x / distance, y: vCollision.y / distance};
@@ -231,7 +231,7 @@ function component(width, height, color, x, y, id) {
                         colPiece.x += colPiece.speedX;
                         colPiece.y += colPiece.speedY;
                     }
-                    //*//*
+                    //*/
 
                     this.collision = false;
                     colPiece.collision = false;
@@ -240,23 +240,23 @@ function component(width, height, color, x, y, id) {
                 }
             }
         }
-    }
+    };
     this.infect = function(){
         if (Math.random() < this.chanceOfInfection && !this.infected && !this.immune){
             this.infected = true;
             numInfected++;
-            document.getElementById("numberOfInfected").innerHTML = numInfected;
+            document.getElementById("numberOfInfected").innerHTML = numInfected.toString();
             this.color = "#000000";
             numUntouched--;
         }
         
-    }
+    };
     this.cure = function(){
         this.infected = false;
         numInfected--;
-        document.getElementById("numberOfInfected").innerHTML = numInfected;
+        document.getElementById("numberOfInfected").innerHTML = numInfected.toString();
         this.color = "Green";
-    }
+    };
     this.death = function(){
         this.dead = true;
         this.color = "red";
@@ -268,9 +268,9 @@ function component(width, height, color, x, y, id) {
         this.x = 0;
         this.y = 0;
         
-    }
+    };
     this.attemptMove = function(){
-        for (count = 0; count<numPieces; count++){
+        for (let count = 0; count<numPieces; count++){
             if (count != this.id){
                 if((Math.abs((this.x + this.speedX) - myGamePiece[count].x)< 30) && (Math.abs((this.y+ this.speedY) - myGamePiece[count].y)< 30)) {
                     return false;
@@ -278,7 +278,7 @@ function component(width, height, color, x, y, id) {
             }
         }
         return true;
-    }
+    };
     this.newPos = function() {
         
         //this.wallCollision();
@@ -295,7 +295,7 @@ function component(width, height, color, x, y, id) {
 //updating board
 function updateGameArea() {
     myGameArea.clear();
-    var count;
+    let count;
     for (count = 0; count < numPieces; count++) {
         myGamePiece[count].newPos();
         
@@ -313,7 +313,7 @@ function updateGraphArea() {
     myDeathLine.update();
     myUntouchedLine.newPos();
     myUntouchedLine.update();
-} */
+}
 
 
 </script>
