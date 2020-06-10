@@ -1,0 +1,24 @@
+@media (max-width: 240px) {
+   /* really tiny screens */
+    .myAnimation{
+
+    }
+}
+@media (min-width: 241px) and (max-width: 319px) {
+   /* a little bit bigger screens */
+    .myAnimation{
+
+    }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+   /* Basically up to, but not including an iPad */
+    .myAnimation{
+
+    }
+}
+@media (min-width: 768px) {
+   /* iPad and bigger */
+    .myAnimation{
+        width: 66%;
+    }
+}
