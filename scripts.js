@@ -37,7 +37,7 @@ function startGame() {
 }
     
 var myGameArea = {
-    canvas : document.createElement("canvas"),
+    canvas : document.getElementById("myAnimation"),
     start : function() {
         this.canvas.width = 1000;
         this.canvas.height = 1000;
@@ -51,7 +51,7 @@ var myGameArea = {
 };
 
 var myGraphArea = {
-    canvas: document.getElementById("myCanvas"),
+    canvas: document.getElementById("myGraph"),
     start : function() {
         this.canvas.width = 1000;
         this.canvas.height = 1000;
