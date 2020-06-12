@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c72df6b2-f9ba-45d7-8d86-aac96f5f3223" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ECE192.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Epidemics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Epidemics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -59,7 +57,7 @@
       <workItem from="1590629551989" duration="8050000" />
       <workItem from="1591756165883" duration="686000" />
       <workItem from="1591759755540" duration="6097000" />
-      <workItem from="1591979524370" duration="5979000" />
+      <workItem from="1591979524370" duration="6098000" />
     </task>
     <servers />
   </component>
@@ -79,10 +77,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1" timestamp="1591980644230">
+    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1" timestamp="1591985665469">
       <screen x="-1920" y="0" width="1536" height="864" />
     </state>
-    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1591980644230" />
+    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1591985665469" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
