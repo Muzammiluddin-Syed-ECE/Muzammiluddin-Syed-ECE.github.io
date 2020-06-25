@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c72df6b2-f9ba-45d7-8d86-aac96f5f3223" name="Default Changelist" comment="" />
+    <list default="true" id="c72df6b2-f9ba-45d7-8d86-aac96f5f3223" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ECE140.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECE192.html" beforeDir="false" afterPath="$PROJECT_DIR$/ECE192.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +59,11 @@
       <workItem from="1590629551989" duration="8050000" />
       <workItem from="1591756165883" duration="686000" />
       <workItem from="1591759755540" duration="6097000" />
-      <workItem from="1591979524370" duration="6464000" />
+      <workItem from="1591979524370" duration="7771000" />
+      <workItem from="1592008321062" duration="9643000" />
+      <workItem from="1592517246329" duration="11175000" />
+      <workItem from="1592588099845" duration="1925000" />
+      <workItem from="1593108125152" duration="1733000" />
     </task>
     <servers />
   </component>
@@ -74,10 +83,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1" timestamp="1591985665469">
+    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1" timestamp="1591986549027">
       <screen x="-1920" y="0" width="1536" height="864" />
     </state>
-    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1591985665469" />
+    <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1591986549027" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -85,7 +94,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scripts.js</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

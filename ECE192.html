@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ECE 192 Tools</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript" src="Muzammiluddin-Syed-ECE.github.io/scripts.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="assets/js/bootstrap.min.js"></script>
 
@@ -44,27 +44,27 @@
     <div class="container-lg">
         <div class="container">
             <div class="input-group mb-3">
-                <input id="i" onsubmit="" type="text" class="form-control" placeholder="Interest per period" aria-label="Interest per period" aria-describedby="basic-addon2" onclick="">
+                <input id="i" onsubmit="" type="text" class="form-control" placeholder="Interest per period" aria-label="Interest per period" aria-describedby="basic-addon3" onclick="">
                 <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">Interest per period</span>
+                    <span class="input-group-text" id="basic-addon3">Interest per period</span>
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input id="N" type="text" class="form-control" placeholder="Total number of periods" aria-label=Total number of periods" aria-describedby="basic-addon2" onclick="">
+                <input id="N" type="text" class="form-control" placeholder="Total number of periods" aria-label="Total number of periods" aria-describedby="basic-addon4" onclick="">
                 <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">Number of periods</span>
+                    <span class="input-group-text" id="basic-addon4">Number of periods</span>
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input id="A" type="text" class="form-control" placeholder="Amount to be multiplied by coefficient" aria-label="Amount to be multiplied by coefficient" aria-describedby="basic-addon2" onclick="">
+                <input id="A" type="text" class="form-control" placeholder="Amount to be multiplied by coefficient" aria-label="Amount to be multiplied by coefficient" aria-describedby="basic-addon5" onclick="">
                 <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">Amount</span>
+                    <span class="input-group-text" id="basic-addon5">Amount</span>
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input id="g" type="text" class="form-control" placeholder="The geometric increase between periods" aria-label="The geometric increase between periods" aria-describedby="basic-addon2" onclick="">
+                <input id="g" type="text" class="form-control" placeholder="The geometric increase between periods" aria-label="The geometric increase between periods" aria-describedby="basic-addon6" onclick="">
                 <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">Geometric increase</span>
+                    <span class="input-group-text" id="basic-addon6">Geometric increase</span>
                 </div>
             </div>
         </div>
@@ -72,15 +72,15 @@
 
     <div class="container">
         <div>
-            <button onclick="calculate(0)">calculate F/P</button>
-            <button onclick="calculate(1)">calculate P/F</button>
-            <button onclick="calculate(2)">calculate A/F</button>
-            <button onclick="calculate(3)">calculate F/A</button>
-            <button onclick="calculate(4)">calculate A/P</button>
-            <button onclick="calculate(5)">calculate P/A</button>
-            <button onclick="calculate(6)">calculate P/G</button>
-            <button onclick="calculate(7)">calculate A/G</button>
-            <button onclick="calculate(8)">calculate P/A (Geometric)</button>
+            <button onclick="calculater(0)">calculate F/P</button>
+            <button onclick="calculater(1)">calculate P/F</button>
+            <button onclick="calculater(2)">calculate A/F</button>
+            <button onclick="calculater(3)">calculate F/A</button>
+            <button onclick="calculater(4)">calculate A/P</button>
+            <button onclick="calculater(5)">calculate P/A</button>
+            <button onclick="calculater(6)">calculate P/G</button>
+            <button onclick="calculater(7)">calculate A/G</button>
+            <button onclick="calculater(8)">calculate P/A (Geometric)</button>
         </div>
         <div>
             <span>The answer is </span>
@@ -91,11 +91,181 @@
             <span id="coef"> Answer</span>
         </div>
     </div>
+    <div class="container" id="cash-flow-diagram">
+        <button onclick="addRange()">Add range</button>
+        <div class="container" id="container-cash">
+
+        </div>
+        <div>
+            <button onclick="calculateflow()">Calculate & Set up Flow</button>
+        </div>
+        <datalist id="typechoices" aria-hidden="true">
+            <option value="geometric">
+            <option value="arithmetic">
+            <option value="flat">
+        </datalist>
+    </div>
 
 
     <script>
+        let fullRange = [];
+        function range(from, to, amount, type, interest, g) {
+            this.from = from;
+            this.to = to;
+            this.amount = amount;
+            this.type = type;
+            this.i = interest;
+            this.g = g;
+            this.startworth = function() {
+                var value;
+                if (this.type == "geometric"){
+                    value = calculate(8, this.amount, this.i, this.to - this.from, this.g);
+                }
+                if (this.type == "arithmetic"){
+                    value = calculate(6, this.amount, this.i, this.to - this.from, this.g);
+                }
+                if (this.type == "flat"){
+                    value = calculate(5, this.amount, this.i, this.to - this.from, this.g);
+                }
+                return value;
+            }
+            this.future = function(year) {
+                var value;
+                value = this.startworth();
+                value = calculate(0, value, this.amount, this.i, year - this.from);
+
+                return value;
+            }
+
+            this.present = function(year) {
+                var value;
+                value = this.startworth();
+                value = calculate(1, value, this.amount, this.i, year - this.from);
+
+                return value;
+            }
+
+            this.a = function(yearA, yearB) {
+                var value;
+                value = this.present(yearA);
+                value = calculate(4, value, this.amount, this.i, yearA - yearB);
+
+                return value;
+            }
+
+        }
+        let years = 0;
+        function addRange() {
+            var flowcontainer = document.createElement("div");
+            flowcontainer.classList.add("input-group");
+            flowcontainer.classList.add("mb-3");
+            flowcontainer.classList.add("flowcontainers");
+            var flowfrom = document.createElement("input");
+            var flowto = document.createElement("input");
+            var flowamount = document.createElement("input");
+            var flowtype = document.createElement("input");
+            var finterest = document.createElement("input");
+            var fg = document.createElement("g");
+
+            console.log("added");
+            addAttributes(flowfrom, "flowfrom");
+            addAttributes(flowto, "flowto");
+            addAttributes(flowamount, "flowamount");
+            addAttributes(flowtype, "flowtype");
+            addAttributes(finterest, "finterest");
+            addAttributes(fg, "fg");
+
+            var flowfromadd = document.createElement("div");
+            flowfromadd.classList.add("input-group-append");
+            var flowfromaddtext = document.createElement("span");
+            flowfromaddtext.setAttribute("class", "input-group-text");
+            flowfromaddtext.setAttribute("id", "basic-addon2");
+            flowfromaddtext.innerHTML = "from";
+
+            var flowtoadd = document.createElement("div");
+            flowtoadd.classList.add("input-group-append");
+            var flowtoaddtext = document.createElement("span");
+            flowtoaddtext.setAttribute("class", "input-group-text");
+            flowtoaddtext.setAttribute("id", "basic-addon2");
+            flowtoaddtext.innerHTML = "to";
+
+            var flowamountadd = document.createElement("div");
+            flowamountadd.classList.add("input-group-append");
+            var flowamountaddtext = document.createElement("span");
+            flowamountaddtext.setAttribute("class", "input-group-text");
+            flowamountaddtext.setAttribute("id", "basic-addon2");
+            flowamountaddtext.innerHTML = "Amount";
+
+            var flowtypeadd = document.createElement("div");
+            flowtypeadd.classList.add("input-group-append");
+            var flowtypeaddtext = document.createElement("span");
+            flowtypeaddtext.setAttribute("class", "input-group-text");
+            flowtypeaddtext.setAttribute("id", "basic-addon2");
+            flowtypeaddtext.innerHTML = "Type";
+
+            var finterestadd = document.createElement("div");
+            finterestadd.classList.add("input-group-append");
+            var finterestaddtext = document.createElement("span");
+            finterestaddtext.setAttribute("class", "input-group-text");
+            finterestaddtext.setAttribute("id", "basic-addon2");
+            finterestaddtext.innerHTML = "i";
+
+            var fgadd = document.createElement("div");
+            fgadd.classList.add("input-group-append");
+            var fgaddtext = document.createElement("span");
+            fgaddtext.setAttribute("class", "input-group-text");
+            fgaddtext.setAttribute("id", "basic-addon2");
+            fgaddtext.innerHTML = "g";
+
+            var parent = document.getElementById("cash-flow-diagram");
+            parent.appendChild(flowcontainer);
+            flowcontainer.appendChild(flowfromadd);
+            flowcontainer.appendChild(flowfrom);
 
 
+            flowcontainer.appendChild(flowtoadd);
+            flowcontainer.appendChild(flowto);
+            flowcontainer.appendChild(flowamountadd);
+            flowcontainer.appendChild(flowamount);
+            flowcontainer.appendChild(flowtypeadd);
+            flowcontainer.appendChild(flowtype);
+            flowcontainer.appendChild(finterestadd);
+            flowcontainer.appendChild(finterest);
+            flowcontainer.appendChild(fgadd);
+            flowcontainer.appendChild(fg);
+
+
+            flowfromadd.appendChild(flowfromaddtext);
+            flowtoadd.appendChild(flowtoaddtext);
+            flowamountadd.appendChild(flowamountaddtext);
+            flowtypeadd.appendChild(flowtypeaddtext);
+            finterestadd.appendChild(finterestaddtext);
+            fgadd.appendChild(fgaddtext);
+
+        }
+        function addAttributes(element, id) {
+            if (id === "flowtype") {
+                element.setAttribute("list", "typechoices");
+            } else {
+                element.setAttribute("list", "");
+            }
+
+            element.setAttribute("id", id);
+            element.setAttribute("type", "text");
+            element.setAttribute("class", "form-control");
+            element.setAttribute("placeholder", "");
+            element.setAttribute("aria-label", "");
+            element.setAttribute("aria-describedby", "basic-addon2");
+        }
+        function calculateflow(){
+            var containers = document.getElementsByClassName("flowcontainers");
+
+        }
+        function gatherInputs(){
+
+        }
+        function onflowinput() {
+        }
         var arr = [1,2,3,4]; //0 = A, 1 = i, 2 = N
         var i_input = document.getElementById("i");
         var N_input = document.getElementById("N");
@@ -125,16 +295,19 @@
             var val = parseFloat(g_input.value);
             set_vars(val, 3);
         }
-       function calculate(value){
+        function calculater(value){
+            calculate(value, arr[0], arr[1], arr[2], arr[3])
+        }
+       function calculate(value, A, i, N, g){
             console.log("clicked");
             console.log(value);
             var answer = document.getElementById("answer");
             var co = document.getElementById("coef");
             var calc;
-            var A = arr[0];
-            var i = arr[1];
-            var N = arr[2];
-            var g = arr[3];
+            //var A = arr[0];
+            //var i = arr[1];
+            //var N = arr[2];
+            //var g = arr[3];
             if (value == 0) {
                 calc =  Math.pow((1+i), N); //F/P
             }
@@ -154,12 +327,12 @@
                 calc = (Math.pow((1+i), N) - 1)/(i*(Math.pow((1+i), N))); // P/A
             }
             if (value == 6) {
-                calc = (Math.pow((1+i), N) - i*N - 1)/(i*i - (N/(Math.pow((1+i), N) - 1)));// P/G
+                calc = (Math.pow((1+i), N) - i*N - 1)/(i*i*(Math.pow((1+i), N)));// P/G
             }
             if (value == 7) {
-                calc = (1/i) - (N/(Math.pow((1+i), N) - 1));
+                calc = (1/i) - (N/(Math.pow((1+i), N) - 1)); //     A/G
             }
-            if (value == 8) {
+            if (value == 8) {//     P/A
                 var io = ((1 + i)/(1 + g)) - 1;
                 console.log(io);
                 console.log(i);
@@ -169,6 +342,7 @@
 
             answer.innerHTML = (calc*A).toString();
             co.innerHTML = (calc).toString();
+            return calc*A;
        }
 
     </script>
