@@ -5,7 +5,7 @@ var myUntouchedLine;
 
 var positionx = [];
 var positiony = [];
-var numPieces = 800; 
+var numPieces = 800;
 var numInfected = 1;
 var numUntouched = numPieces -1;
 var numDead = 0;
@@ -29,13 +29,13 @@ function startGame() {
     myGamePiece[1].speedX =  -1;
     myGamePiece[1].speedY =  -1;
     myGamePiece[0].infected = true;
-    
+
     myGameArea.start();
     myGraphArea.start();
             //set up the pieces
                 //call intitiating animaltion functions
 }
-    
+
 var myGameArea = {
     canvas : document.getElementById("myAnimation"),
     start : function() {
@@ -71,12 +71,12 @@ function Linecomponent(color, x, y, mode) {
         let ctx = myGraphArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, 5, 5);
-        
+
     };
     this.newPos = function() {
-        document.getElementById("test").innerHTML = "halfway - 2";
+        //document.getElementById("test").innerHTML = "halfway - 2";
         numUpdated++;
-        
+
         this.x = this.x+0.4;
         if (this.mode === 0) {
             this.y = myGraphArea.canvas.height - 5 - numInfected * 1.2;
@@ -88,7 +88,7 @@ function Linecomponent(color, x, y, mode) {
             this.y = (myGraphArea.canvas.height - numPieces) + (numPieces - numUntouched);
         }
         console.log(this.x);
-        document.getElementById("test").innerHTML = "halfway - 3";
+        //document.getElementById("test").innerHTML = "halfway - 3";
     }
 }
 function Component(width, height, color, x, y, id) {
@@ -122,13 +122,13 @@ function Component(width, height, color, x, y, id) {
         let ctx = myGameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
-        
+
     };
     this.wallCollision = function() {
         let col = true;
         if ((this.x >= (myGameArea.canvas.width - this.width)) && this.speedX > 0) {
             this.speedX =  -1 * this.speedX;
-            
+
         }
         if (this.y >= (myGameArea.canvas.height - this.height) && this.speedY > 0) {
             this.speedY =  -1 * this.speedY;
@@ -151,10 +151,10 @@ function Component(width, height, color, x, y, id) {
                     let vCollisionNorm = {x: vCollision.x / distance, y: vCollision.y / distance};
                     let vRelativeVelocity = {x: this.speedX - colPiece.speedX, y: this.speedY - colPiece.speedY};
                     let speed = vRelativeVelocity.x * vCollisionNorm.x + vRelativeVelocity.y * vCollisionNorm.y;
-                    
+
                     if (speed > 0) {
-                    
-                    
+
+
                         this.speedX  -= (speed * vCollisionNorm.x);
                         this.speedY  -= (speed * vCollisionNorm.y);
                         colPiece.speedX += (speed * vCollisionNorm.x);
@@ -172,7 +172,7 @@ function Component(width, height, color, x, y, id) {
                     this.collision = false;
                     colPiece.collision = false;
 
-                   
+
                 }
             }
         }
@@ -182,10 +182,10 @@ function Component(width, height, color, x, y, id) {
             this.infected = true;
             numInfected++;
             document.getElementById("numberOfInfected").innerHTML = numInfected.toString();
-            this.color = "#000000";
+            this.color = "Red";
             numUntouched-- ;
         }
-        
+
     };
     this.cure = function() {
         this.infected = false;
@@ -195,7 +195,7 @@ function Component(width, height, color, x, y, id) {
     };
     this.death = function() {
         this.dead = true;
-        this.color = "red";
+        this.color = "black";
         numDead++;
         numInfected --;
         this.infected = false;
@@ -216,7 +216,7 @@ function Component(width, height, color, x, y, id) {
         return true;
     };
     this.newPos = function() {
-        
+
         //this.wallCollision();
         this.blockCollision();
         //if (!(this.wallCollision()) && this.attemptMove()) {
@@ -224,7 +224,7 @@ function Component(width, height, color, x, y, id) {
         this.x += this.speedX;
         this.y += this.speedY;
         //}
-    
+
     };
 }
 
@@ -234,7 +234,7 @@ function updateGameArea() {
     let count;
     for (count = 0; count < numPieces; count++) {
         myGamePiece[count].newPos();
-        
+
     }
     for (count = 0; count < numPieces; count++) {
         myGamePiece[count].update();
