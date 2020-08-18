@@ -242,7 +242,7 @@ function updateGameArea() {
 }
 
 function updateGraphArea() {
-    document.getElementById("test").innerHTML = "halfway";
+    //document.getElementById("test").innerHTML = "halfway";
     myInfectedLine.newPos();
     myInfectedLine.update();
     myDeathLine.newPos();
