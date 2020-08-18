@@ -10,6 +10,33 @@ var numInfected = 1;
 var numUntouched = numPieces -1;
 var numDead = 0;
 var numUpdated = 0;
+var chanceOfInfection = 0.80;
+var chanceOfCure = 0.01;
+var chanceOfDeath = 0.01;
+var deathlimit = 14000;
+
+
+var i_input = document.getElementById("i");
+var c_input = document.getElementById("c");
+var d_input = document.getElementById("d");
+var l_input = document.getElementById("l");
+
+i_input.oninput = function(){
+    var val = parseFloat(i_input.value);
+    chanceOfInfection = val;
+}
+c_input.oninput = function(){
+    var val = parseFloat(c_input.value);
+    chanceOfCure = val;
+}
+d_input.oninput = function(){
+    var val = parseFloat(d_input.value);
+    chanceOfDeath = val;
+}
+l_input.oninput = function(){
+    var val = parseFloat(l_input.value);
+    deathlimit = val;
+}
     //function that starts game
 function startGame() {
     var count;
@@ -103,20 +130,17 @@ function Component(width, height, color, x, y, id) {
     this.infected = false;
     this.immune = false;
     this.dead = false;
-    this.chanceOfInfection = 0.80;
-    this.chanceOfCure = 0.00178;
-    this.chanceOfDeath = 0.00178;
     this.deathTimer = 0;
 
     this.update = function() {
-        if( Math.random() < this.chanceOfCure && this.infected) {
+        if( Math.random() < chanceOfCure && this.infected) {
             this.cure();
             this.immune = true;
         }
         if(this.infected) {
             this.deathTimer += 25;
         }
-        if( Math.random() < this.chanceOfDeath && this.deathTimer > 14000 && this.infected && !this.dead) {
+        if( Math.random() < chanceOfDeath && this.deathTimer > deathlimit && this.infected && !this.dead) {
             this.death();
         }
         let ctx = myGameArea.context;
