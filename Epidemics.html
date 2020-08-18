@@ -45,7 +45,7 @@
                 </li>
 
             </ul>
-            <button class="btn mybtn-outline-success my-2 my-sm-0 float-right" style="border-color: #fee2b3;" type="submit">Resume</button><!--
+            <button class="btn mybtn-outline-success my-2 my-sm-0 float-right" data-toggle="modal" data-target="#exampleModalLong" style="border-color: #fee2b3;" type="submit">Resume</button><!--
         <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -96,6 +96,24 @@
     <div class="d-flex justify-content-center">
         <canvas id="myAnimation" >Your browser does not support the HTML5 canvas tag.</canvas>
         <canvas id="myGraph" >Your browser does not support the HTML5 canvas tag.</canvas>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Resume</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <embed src="assets/RESUME%20updated.pdf" style="width:100%; height:75vh;"></embed>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="Muzammiluddin-Syed-ECE.github.io/scripts.js"></script>
     </body>
