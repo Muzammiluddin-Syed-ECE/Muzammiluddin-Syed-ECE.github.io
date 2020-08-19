@@ -11,8 +11,8 @@ var numUntouched = numPieces -1;
 var numDead = 0;
 var numUpdated = 0;
 var chanceOfInfection = 0.80;
-var chanceOfCure = 0.00178;
-var chanceOfDeath = 0.00178;
+var chanceOfCure = 0.000178;
+var chanceOfDeath = 0.000178;
 var deathlimit = 14000;
 
 
@@ -30,11 +30,11 @@ ib.onclick = function() {
 }
 cb.oninput = function() {
     var val = parseFloat(c_input.value);
-    chanceOfCure = val*0.178;
+    chanceOfCure = val*0.0178;
 }
 db.oninput = function() {
     var val = parseFloat(d_input.value);
-    chanceOfDeath = val*0.178;
+    chanceOfDeath = val*0.0178;
 }
 lb.oninput = function() {
     var val = parseFloat(l_input.value);
