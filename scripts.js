@@ -49,15 +49,7 @@ function startGame() {
     myInfectedLine = new Linecomponent("red", 1, myGraphArea.canvas.height, 0);
     myDeathLine = new Linecomponent("black", 1, myGraphArea.canvas.height, 1);
     myUntouchedLine = new Linecomponent("#808080", 1, myGraphArea.canvas.height - numPieces, 2);
-    myGamePiece[0].x = 20;
-    myGamePiece[0].y = 100;
-    myGamePiece[1].x = 200;
-    myGamePiece[1].y = 100;
-    myGamePiece[0].color = "#000000";
-    myGamePiece[0].speedX = 1;
-    myGamePiece[0].speedY =  -1;
-    myGamePiece[1].speedX =  -1;
-    myGamePiece[1].speedY =  -1;
+    myGamePiece[0].color = "Red";
     myGamePiece[0].infected = true;
 
     myGameArea.start();
