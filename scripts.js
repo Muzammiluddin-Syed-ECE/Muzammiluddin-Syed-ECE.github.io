@@ -28,15 +28,15 @@ ib.onclick = function() {
     var val = parseFloat(i_input.value);
     chanceOfInfection = val;
 }
-cb.oninput = function() {
+cb.onclick = function() {
     var val = parseFloat(c_input.value);
     chanceOfCure = val*0.0178;
 }
-db.oninput = function() {
+db.onclick = function() {
     var val = parseFloat(d_input.value);
     chanceOfDeath = val*0.0178;
 }
-lb.oninput = function() {
+lb.onclick = function() {
     var val = parseFloat(l_input.value);
     deathlimit = val;
 }
