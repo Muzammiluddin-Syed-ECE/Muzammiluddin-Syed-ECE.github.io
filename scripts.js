@@ -128,14 +128,14 @@ function Component(width, height, color, x, y, id) {
     this.deathTimer = 0;
 
     this.update = function() {
-        if( Math.random() < chanceOfCure && this.infected) {
+        if((Math.random() < chanceOfCure) && this.infected) {
             this.cure();
             this.immune = true;
         }
         if(this.infected) {
             this.deathTimer += 25;
         }
-        if( Math.random() < chanceOfDeath && this.deathTimer > deathlimit && this.infected && !this.dead) {
+        if((Math.random() < chanceOfDeath) && (this.deathTimer > deathlimit) && this.infected && !this.dead) {
             this.death();
         }
         let ctx = myGameArea.context;
@@ -197,7 +197,7 @@ function Component(width, height, color, x, y, id) {
         }
     };
     this.infect = function() {
-        if (Math.random() < this.chanceOfInfection && !this.infected && !this.immune) {
+        if ((Math.random() < chanceOfInfection) && !this.infected && !this.immune) {
             this.infected = true;
             numInfected++;
             document.getElementById("numberOfInfected").innerHTML = numInfected.toString();
