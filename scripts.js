@@ -17,23 +17,26 @@ var deathlimit = 14000;
 
 
 var i_input = document.getElementById("i");
+var ib = document.getElementById("ib");
 var c_input = document.getElementById("c");
+var cb = document.getElementById("cb");
 var d_input = document.getElementById("d");
+var db = document.getElementById("db");
 var l_input = document.getElementById("l");
-
-i_input.oninput = function() {
+var lb = document.getElementById("lb");
+ib.onclick = function() {
     var val = parseFloat(i_input.value);
     chanceOfInfection = val;
 }
-c_input.oninput = function() {
+cb.oninput = function() {
     var val = parseFloat(c_input.value);
     chanceOfCure = val*0.178;
 }
-d_input.oninput = function() {
+db.oninput = function() {
     var val = parseFloat(d_input.value);
     chanceOfDeath = val*0.178;
 }
-l_input.oninput = function() {
+lb.oninput = function() {
     var val = parseFloat(l_input.value);
     deathlimit = val;
 }
