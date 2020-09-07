@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c72df6b2-f9ba-45d7-8d86-aac96f5f3223" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECE192.html" beforeDir="false" afterPath="$PROJECT_DIR$/ECE192.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +66,11 @@
       <workItem from="1593108125152" duration="2644000" />
       <workItem from="1593501587627" duration="627000" />
       <workItem from="1597509406250" duration="419000" />
-      <workItem from="1597788739149" duration="8127000" />
+      <workItem from="1597788739149" duration="8925000" />
+      <workItem from="1598120813729" duration="453000" />
+      <workItem from="1598594222349" duration="23285000" />
+      <workItem from="1598728346661" duration="10204000" />
+      <workItem from="1599456092891" duration="6664000" />
     </task>
     <servers />
   </component>
@@ -83,10 +90,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2468" y="251" key="FileChooserDialogImpl" timestamp="1597509824278">
+    <state x="2468" y="251" key="FileChooserDialogImpl" timestamp="1598121267868">
       <screen x="1920" y="77" width="1536" height="864" />
     </state>
-    <state x="2468" y="251" key="FileChooserDialogImpl/0.0.1920.1080/1920.77.1536.864@1920.77.1536.864" timestamp="1597509824278" />
+    <state x="2468" y="251" key="FileChooserDialogImpl/0.0.1920.1080/1920.77.1536.864@1920.77.1536.864" timestamp="1598121267868" />
     <state x="-2136" y="-7" width="1550" height="880" maximized="true" key="dock-window-1" timestamp="1591986549027">
       <screen x="-1920" y="0" width="1536" height="864" />
     </state>

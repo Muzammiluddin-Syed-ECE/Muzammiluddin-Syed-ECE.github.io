@@ -13,12 +13,14 @@
 
     --><!-- Latest compiled JavaScript                  #142850"
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    Latest compiled JavaScript --><link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    Latest compiled JavaScript -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <script src="assets/js/bootstrap.min.js"></script>
 
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #562349">
+<body onload="startAnimations()">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #562349; width: 100vw; max-width:100%;">
 
         <a class="navbar-brand" style="font-size:25px" href="#">
             <img src="assets/lion2.png"  width="40" height="40" class="d-inline-block align-top" alt="">
@@ -71,7 +73,119 @@
         </div>
       </div>
     </div>
-    <div class="view" style="height: 100vh; background-image: url('assets/landscape.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div id="home-background" class="container-fluid">
+        <div class="about-options-group">
+            <div class="row justify-content-center">
+                <div id="intro" class="bubble about-options passed grad-red d-flex row justify-content-center align-items-center" onmouseover="gradHover()" onmouseout="gradHoverOut()">
+                    <div>
+                        Intro
+                    </div>
+                </div>
+                <div class="line about-options"></div>
+                <div id="about" class="bubble about-options d-flex row justify-content-center align-items-center" >
+                    <div>
+                        About me
+                    </div>
+                </div>
+                <div class="line about-options"></div>
+                <div id="projects" class="bubble about-options d-flex row justify-content-center align-items-center" >
+                    <div>
+                        Projects
+                    </div>
+                </div>
+                <div class="line about-options"></div>
+                <div id="blog" class="bubble about-options d-flex row justify-content-center align-items-center">
+                    <div>
+                        Blog
+                    </div>
+                </div>
+                <!--<div class="col-3" style="background-color: red;">
+                    One of two columns
+                </div>
+                <div class="col-3" style="background-color: blue;">
+                    One of two columns
+                </div>
+                <div class="col-3" style="background-color: green;">
+                    One of two columns
+                </div>-->
+            </div>
+        </div>
+        <div class="content">
+            <div id="intro-section" class="active-section" style="color: white; height: 100%;">
+                <div class="row justify-content-lg-start" style="padding-left: 20vw;">
+                    <div class="col-xs-3"><h1>Hi I'm</h1></div>
+                </div>
+                <div class="row justify-content-center" style="padding-top: 5vh; padding-bottom: 5vh;">
+
+                    <div class="col-xs-6">
+                        <p class=text-light" style="color: #95999c; font-size: 75px;">Muzammiluddin &nbsp</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p style="color : #ffcc00; opacity: .99;text-shadow: -1px -1px 0 rgba(255,255,255,.4), 1px -1px 0 rgba(255,255,255,.4), -1px 1px 0 rgba(255,255,255,.4), 1px 1px 0 rgba(255,255,255,.4), 0 -2px 8px, 0 0 2px, 0 0 5px #ff7e00, 0 0 15px #ff4444, 0 0 2px #ff7e00, 0 2px 3px #000; font-size: 75px;">Syed</p>
+                    </div>
+                </div>
+                <div class="row justify-content-lg-end" style="padding-right: 20vw;">
+                    <div class="col-xs-3"><h1 class="description-text-activenew">A Programmer</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text description-text-active hidden">A Programmer</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">A Student at University of Waterloo</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">A human (despite what those streetcar tests say)</h1></div>
+                </div>
+                <svg id="pawn" style="overflow: visible; position: absolute; bottom: 10vh;">
+                    <g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,10.000000) scale(0.010,-0.0100000)" fill="#ffffff" >
+                    <path d="M11272 3955 c-144 -32 -305 -143 -364 -252 -79 -145 -74 -345 12 -532 17 -35 30 -66 30 -70 0 -4 -15 -13 -34 -19 -99 -36 -252 -165 -315 -267 -74 -117 -106 -311 -77 -457 41 -208 140 -358 284 -430 l63 -31 -53 -30 c-330 -185 -505 -351 -632 -596 -88 -170 -145 -382 -165 -618 -12 -134 -15 -384 -5 -457 l7 -46 1383 0 1383 0 7 36 c4 20 4 145 1 278 -9 418 -71 664 -224 895 -123 184 -318 355 -561 492 l-83 47 38 15 c58 23 157 100 202 157 91 115 126 230 126 410 -1 193 -50 322 -168 439 -72 71 -114 101 -208 147 l-69 34 29 53 c54 95 84 202 85 302 1 110 -20 183 -76 271 -120 192 -366 283 -616 229z m244 -230 c67 -28 115 -67 145 -120 25 -43 29 -61 29 -125 0 -67 -4 -82 -35 -140 -69 -128 -79 -154 -83 -220 -4 -60 -2 -67 23 -92 15 -15 73 -58 128 -95 127 -83 203 -159 244 -243 42 -87 57 -171 50 -277 -11 -151 -61 -223 -236 -338 -109 -72 -141 -106 -141 -154 0 -85 83 -170 282 -290 236 -141 401 -308 501 -506 69 -137 122 -350 132 -532 3 -54 8 -117 10 -140 l5 -43 -1160 0 -1160 0 0 93 c0 112 21 274 49 383 77 300 248 517 585 742 87 59 179 126 203 150 51 49 88 122 79 157 -9 37 -54 83 -136 141 -133 93 -194 172 -225 291 -31 120 -5 260 70 373 51 77 102 123 225 202 122 80 135 96 135 171 -1 53 -8 77 -47 162 -89 189 -93 218 -49 310 55 116 147 170 272 161 37 -3 84 -12 105 -21z"/>
+                    </g>
+                </svg>
+                <!--<svg id="queen" style="overflow: visible; position: absolute; bottom: 5vh; left: 10vw;">
+                    <g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,10.000000) scale(0.010,-0.0100000)" fill="#ffffff" >
+                    <path d="M6375 9367 c-152 -51 -240 -145 -266 -283 -13 -69 -10 -88 35 -207 111 -297 121 -547 40 -1011 -32 -185 -78 -406 -84 -406 -3 0 -40 81 -83 180 -151 347 -232 607 -258 823 -9 81 -8 112 11 242 25 172 22 205 -24 301 -61 126 -158 193 -292 202 -170 11 -335 -94 -379 -240 -19 -67 -19 -180 1 -247 13 -45 30 -68 104 -142 114 -114 135 -154 160 -319 20 -133 5 -732 -19 -778 -5 -9 -30 12 -79 67 -117 129 -210 259 -262 366 -76 157 -82 202 -54 409 21 164 3 237 -83 344 -154 190 -482 144 -594 -83 -51 -105 -50 -233 3 -339 30 -59 115 -143 188 -187 l66 -39 13 -102 c15 -126 74 -426 137 -693 25 -110 59 -254 74 -321 15 -66 34 -133 43 -150 8 -16 88 -112 177 -214 179 -204 209 -244 247 -326 39 -85 30 -147 -40 -300 -84 -183 -99 -239 -105 -382 l-4 -122 36 -34 c109 -103 466 -162 1139 -187 540 -20 1106 16 1407 88 90 21 206 78 227 110 15 22 18 50 17 152 l0 126 -48 105 c-90 197 -127 290 -128 322 -4 114 56 209 304 482 149 165 158 184 218 428 101 414 190 862 190 961 0 53 4 57 69 93 132 71 214 185 232 323 8 64 6 80 -17 153 -24 74 -33 89 -93 149 -80 80 -137 103 -251 104 -64 0 -85 -5 -142 -32 -125 -59 -203 -159 -215 -276 -3 -31 2 -115 12 -190 16 -127 16 -140 1 -208 -31 -139 -135 -310 -310 -509 -61 -69 -92 -97 -96 -88 -14 26 -33 417 -28 573 9 250 58 397 176 526 94 102 107 134 107 259 0 96 -2 110 -29 160 -47 90 -90 136 -164 172 -61 30 -74 33 -162 33 -84 0 -102 -3 -151 -28 -127 -62 -198 -160 -206 -285 -3 -37 2 -115 11 -175 32 -216 11 -385 -85 -669 -57 -169 -215 -553 -239 -581 -9 -10 -29 75 -75 318 -102 538 -96 751 29 1100 40 112 43 140 20 229 -28 111 -96 196 -188 237 -61 26 -184 35 -241 16z m175 -195 c45 -22 70 -72 70 -140 0 -111 -49 -162 -155 -162 -109 0 -157 52 -157 168 0 48 4 71 19 90 28 39 80 62 138 62 28 0 66 -8 85 -18z m-1030 -201 c80 -57 79 -215 -2 -274 -40 -30 -115 -34 -171 -9 -59 26 -79 65 -79 148 0 90 31 136 107 155 43 11 116 1 145 -20z m2075 0 c46 -26 67 -75 63 -148 -6 -97 -50 -142 -148 -150 -58 -6 -125 28 -151 77 -37 68 -17 173 40 217 45 35 138 37 196 4z m-2940 -416 c73 -42 96 -134 56 -222 -25 -53 -62 -73 -139 -73 -105 0 -157 55 -157 167 0 47 5 69 21 90 47 65 145 82 219 38z m3774 7 c56 -28 76 -63 76 -135 0 -74 -17 -113 -64 -144 -65 -44 -178 -24 -225 39 -31 43 -33 133 -4 182 42 71 141 98 217 58z m-2828 -439 c40 -122 138 -361 195 -476 75 -150 123 -221 239 -355 l97 -113 61 98 c114 186 184 397 248 745 12 70 25 126 27 124 2 -3 28 -109 57 -238 55 -239 101 -406 127 -468 9 -19 45 -86 80 -148 l65 -112 93 110 c130 153 182 233 263 400 77 160 88 188 158 375 l48 130 -6 -125 c-7 -146 9 -368 42 -600 25 -167 62 -380 68 -387 6 -6 150 98 233 168 102 85 249 242 354 377 56 73 80 97 80 82 0 -43 -90 -469 -124 -587 -35 -122 -81 -228 -109 -251 -11 -10 -37 -1 -131 43 -270 129 -587 206 -964 236 -203 17 -690 5 -867 -20 -333 -47 -619 -130 -814 -237 -60 -33 -65 -34 -87 -19 -55 36 -107 202 -193 620 -17 83 -36 168 -41 190 -5 21 -8 41 -6 43 2 1 42 -46 88 -105 163 -206 339 -376 512 -492 87 -59 76 -71 105 114 60 380 85 635 79 815 -2 71 -3 130 -2 130 1 0 12 -30 25 -67z m1211 -1218 c547 -46 797 -127 786 -254 -5 -56 -23 -58 -440 -32 -462 27 -793 27 -1343 0 -479 -24 -485 -24 -485 34 0 18 7 42 15 55 59 83 380 173 720 201 172 14 553 12 747 -4z m188 -506 c162 -10 449 -36 487 -44 l22 -5 -24 -43 c-46 -81 -57 -276 -20 -334 18 -26 19 -26 -60 -13 -120 20 -321 39 -533 51 -378 20 -1041 -1 -1287 -41 -33 -6 -74 -13 -91 -15 l-32 -5 14 37 c29 83 10 268 -35 331 l-22 31 23 5 c32 7 190 24 341 37 325 28 847 31 1217 8z m139 -633 c198 -24 301 -50 346 -89 42 -37 49 -75 20 -107 -39 -43 -182 -77 -430 -102 -166 -17 -1036 -17 -1214 0 -322 31 -451 74 -451 150 0 31 34 69 86 95 47 24 182 45 364 57 91 6 185 12 210 14 25 2 245 2 490 1 330 -2 480 -7 579 -19z"/>
+                    </g>
+                </svg>-->
+            </div>
+
+            <div id="about-section" class="hidden" style="color: white;">
+                <iframe src="https://docs.google.com/document/d/e/2PACX-1vR934I4OTilpG_AcjpU19V878Rf2zWXZZ6mS4xckCAdf3ZoSdLFWdoyRgeVUNAeNRADeWFbg14VDeVY/pub?embedded=true"></iframe>
+                <svg height="100%" width="100%">
+                    <polygon id="test-polygon" points="10,100 250,100 250,150 10,150"/>
+                    <polygon points="200,10 250,190 160,210" />
+                    <polygon points="200,10 250,190 160,210" />
+                </svg>
+            </div>
+
+            <div id="projects-section"class="hidden" style="color: white;">
+                projects
+            </div>
+
+            <div id="blog-section" class="hidden" style="color: white;">
+                Alchemy, the art of destroying creating and transforming matter. FOR WHAT COULD EQUAL THE VALUE OF A HUMAN LIFE.
+                Kono om noi wo keshteshi na mi wa naka jinsei naka ii desho. Kono om noi wo naka i tala NA kem neri ii teru datte
+                naka jinsei naka ii desho im on the wayyyy bunnani nante kako iiwa kang se jung
+            </div>
+
+        </div>
+
+        <!--<div class="row" style="height: 100vh; width: 100vw; max-width:100%;">
+            <div  style="background-color: #000000; height: 100%; width: 25vw; max-width: 25vw;">
+                col-sm-4
+            </div>
+            <div  style="background-color: #909090; height: 100%; width: 75vw; max-width: 75vw;">
+                col-sm-8
+            </div>
+        </div>-->
+    </div>
+        <!--<div class="container" style="width: 33vw; background-color: #000000;">
+            <div >
+                <div class="container d-flex align-items-center justify-content-center" style="min-height: 50px; height: 15vh; background-color: white;">
+                     <div class="inner">
+                        <h1>Hi! I'm Muzammiluddin Syed.</h1>
+                     </div>
+                </div>
+            </div>
+            <div style="width: 67vw; background-color: #909090;">
+
+            </div>
+
+        </div>-->
+    <!--<div class="view" style="height: 100vh; background-image: url('assets/landscape.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div class="mask align-items-center" style="height: 100%; width: 100%; background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);">
             <div id="name" class="container text-center">
                  <div class="row justify-content-center" style="padding-top: 30vh;">
@@ -86,6 +200,187 @@
 
             </div>
         </div>
-    </div>
+    </div>-->
+<script>
+    var deg = 0;
+    var optionhover = false;
+    var optionList = document.getElementsByClassName("about-options");
+    var optionlength = optionList.length;
+    var passedList = document.getElementsByClassName("about-options passed");
+    console.log(passedList.length);
+
+
+
+    var descriptionText = document.getElementsByClassName("description-text-active")[0];
+    var descriptionTextList = document.getElementsByClassName("description-text");
+    var skewdeg = 0;
+
+    var description = {
+        dList : document.getElementsByClassName("description-text"),
+        dActive : document.getElementsByClassName("description-text-active")[0],
+        stage : document.getElementsByClassName("description-text-activenew")[0],
+        count : 0,
+        start : function() {
+            setInterval(description.iterate, 6000);
+            console.log("I HAVE BEgun");
+        },
+        iterate : function() {
+
+            console.log("count: " + description.count);
+            description.dList[description.count].classList.remove("description-text-active");
+            description.dList[(description.count + 1) % description.dList.length].classList.add("description-text-active");
+            description.dActive = description.dList[(description.count + 1) % description.dList.length];
+            description.dActive.onclick = function () {
+                setTimeout(skewbyone, 25);
+            };
+            description.transformation_one_by_one(description.dActive.innerHTML, false);
+            description.count = (description.count + 1)  % description.dList.length;
+        },
+        transformation_one_by_one : function(text, switched, length=description.dActive.innerHTML.length) {
+            if (!switched){
+                if (description.stage.innerHTML != "") {
+                    description.stage.innerHTML = description.stage.innerHTML.substring(1);
+                    setTimeout(() => description.transformation_one_by_one(text, false), 25);
+                } else {
+                    setTimeout(() => description.transformation_one_by_one(text, true), 25);
+                }
+            } else {
+                description.stage.innerHTML = text.substring(length);
+                if (length != 0) {
+                    setTimeout(() => description.transformation_one_by_one(text, true, length-1), 25);
+                }
+            }
+        },
+    };
+
+    function skewbyone() {
+        console.log("-------"+descriptionText.style.fontSize);
+        var size = 64;
+
+        console.log("this is size: "+size);
+        if (skewdeg < 90) {
+            descriptionText.style.transform = 'skewX('+skewdeg+'deg)';
+            descriptionText.style.transform = 'scaleX('+(90-skewdeg)/90+')';
+            skewdeg = skewdeg + 5;
+            setTimeout(skewbyone, 20);
+        } else if (skewdeg > 90 && skewdeg < 180){
+            descriptionText.style.transform = 'skewX('+skewdeg+'deg)';
+            descriptionText.style.transform = 'scaleX('+(skewdeg-90)/90+')';
+            skewdeg = skewdeg + 2;
+            setTimeout(skewbyone, 20);
+        } else {
+            if(skewdeg == 90) {
+                iterateDescription();
+                descriptionText.style.transform = 'skewX('+skewdeg+'deg)';
+                descriptionText.style.transform = 'scaleX('+(90-skewdeg)/90+')';
+                skewdeg++;
+                setTimeout(skewbyone, 500);
+            } else {
+                skewdeg = 0;
+            }
+        }
+
+    }
+    function iterateDescription(){
+        console.log("CHNATED");
+        var found = false;
+        for (var i = 0; i < descriptionTextList.length; i++){
+            if (found == false && descriptionTextList[i].classList.contains("description-text-active")){
+                found = true;
+                descriptionTextList[i].classList.remove("description-text-active");
+                descriptionTextList[i].classList.add("hidden");
+                descriptionTextList[(i+1)%descriptionTextList.length].classList.remove("hidden");
+                descriptionTextList[(i+1)%descriptionTextList.length].classList.add("description-text-active");
+                descriptionText = document.getElementsByClassName("description-text-active")[0];
+                descriptionText.onclick = function(){
+                    setTimeout(skewbyone, 25);
+                };
+                console.log(descriptionText.innerHTML);
+            }
+        }
+    }
+    descriptionText.onclick = function(){
+        setTimeout(skewbyone, 25);
+    };
+
+
+
+    for (var i = 0; i < optionList.length; i++) {
+        if (optionList[i].classList.contains("bubble")){
+            if (optionList[i].classList.contains("passed")){
+                optionList[i].onmouseover = gradHover;
+                optionList[i].onmouseout = gradHoverOut;
+            }
+            optionList[i].onclick = gradclick;
+        }
+    }
+    function startAnimations(){
+        console.log("worked");
+        setInterval(gradChange, 25);
+        with (document.getElementById("test-polygon").points) {
+            getItem(0).x = 0;
+            getItem(0).y = 0;
+            getItem(1).x = 0;
+            getItem(1).y = document.getElementById("intro-section").getBoundingClientRect().bottom;
+            getItem(2).x = document.getElementById("intro-section").getBoundingClientRect().right;
+            getItem(2).y = document.getElementById("intro-section").getBoundingClientRect().bottom;
+            getItem(3).x = document.getElementById("intro-section").getBoundingClientRect().right;
+            getItem(3).y = 0;
+        }
+        //setInterval(skewbyone, 6000);
+        description.start();
+    }
+    function gradChange(){
+        if (optionhover == false) {
+            if (deg > 359) {
+                deg = 0;
+            } else {
+                deg++;
+            }
+            for (var i = 0; i < passedList.length; i++) {
+                passedList[i].style.backgroundImage = 'linear-gradient(' + deg + 'deg, #b5fff2, #e7c5ff)';
+            }
+        }
+    }
+    function gradHover(){
+        this.style.backgroundImage = 'linear-gradient('+deg+'deg, #b5fff2 33%, #e7c5ff 100%)';
+        this.style.border = '4px solid #b300ff';
+        optionhover = true;
+    }
+    function gradHoverOut(){
+        optionhover = false;
+        this.style.border = '2px solid #b300ff';
+    }
+    function gradclick(){
+        this.classList.add("passed");
+        var section = document.getElementById(this.id+"-section");
+        var activeSection = document.getElementsByClassName("active-section")[0];
+        activeSection.classList.remove("active-section");
+        activeSection.classList.add("hidden");
+        section.classList.remove("hidden");
+        section.classList.add("active-section");
+
+        passedList = document.getElementsByClassName("about-options passed");
+        var idfound = false;
+        for (var i = 0; i < optionList.length; i++) {
+            if (optionList[i].id == this.id){
+                idfound = true;
+            }
+            if (!idfound){
+
+                optionList[i].classList.add("passed");
+            }
+            if (optionList[i].classList.contains("bubble")) {
+                if (optionList[i].classList.contains("passed")) {
+                    optionList[i].onmouseover = gradHover;
+                    optionList[i].onmouseout = gradHoverOut;
+                }
+                optionList[i].onclick = gradclick;
+            }
+        }
+    }
+
+
+</script>
 </body>
 </html>

@@ -33,3 +33,77 @@
 canvas{
     border: 10px solid #f1f1f1;
 }
+
+/* Home page */
+#home-background {
+    background-color: #202020;
+    height:100vh;
+    max-height: 100vh;
+    position: relative;
+}
+.grad-red {
+    background-image: linear-gradient(0deg, #b5fff2, #e7c5ff);
+    transition: all 2.5s ease-in-out;
+}
+.about-options-group{
+    padding: 50px 0px 50px 0px;
+}
+.bubble {
+    margin: 0px 0px 0px 0px;
+    height: 100px;
+    width: 100px;
+    background-color: #555555;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #808080;
+    transition: border 0.1s;
+    color: white;
+}
+.bubble:hover {
+    border: 4px solid #b300ff;
+    color: #b300ff;
+}
+.passed {
+    border: 2px solid #b300ff;
+}
+.grad-red-hover {
+    background-image: linear-gradient(180deg, #b5fff2, #e7c5ff);
+}
+.line {
+    margin: 50px 0px 0px 0px;
+    border: 2px solid #202020;
+    width: 75px;
+    height: 0px;
+    transition: border 0.5s;
+}
+.passed {
+    border: 2px solid #b300ff;
+    color: black;
+}
+
+.hidden {
+    display: none;
+}
+polygon {
+    stroke-width: 5;
+  stroke: red;
+  fill: transparent;
+}
+polygon:hover {
+    fill: red;
+}
+#test-polygon {
+    pointer-events: visible;
+}
+#test-polygon:hover {
+    fill: purple;
+}
+.content {
+    height: 70vh;
+}
+.description-text {
+    transform: skewX(0deg);
+}
+.description-text-active {
+    transform: skewX(0deg);
+}
