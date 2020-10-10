@@ -128,6 +128,10 @@
                     <div class="col-xs-3"><h1 class="description-text-activenew">A Programmer</h1></div>
                     <div class="col-xs-3"><h1 class="description-text description-text-active hidden">A Programmer</h1></div>
                     <div class="col-xs-3"><h1 class="description-text hidden">A Student at University of Waterloo</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">Co-founder of SET</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">A debater</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">A bad chess player</h1></div>
+                    <div class="col-xs-3"><h1 class="description-text hidden">A Bill Burr fan</h1></div>
                     <div class="col-xs-3"><h1 class="description-text hidden">A human (despite what those streetcar tests say)</h1></div>
                 </div>
                 <svg id="pawn" style="overflow: visible; position: absolute; bottom: 10vh;">
@@ -142,8 +146,16 @@
                 </svg>-->
             </div>
 
-            <div id="about-section" class="hidden" style="color: white;  height: 100%;">
-                <iframe scrolling="no" style="overflow:hidden" height="100%" width="100%" src="https://docs.google.com/document/d/e/2PACX-1vR934I4OTilpG_AcjpU19V878Rf2zWXZZ6mS4xckCAdf3ZoSdLFWdoyRgeVUNAeNRADeWFbg14VDeVY/pub?embedded=true"></iframe>
+            <div id="about-section" class="hidden" style="color: white;  height: 100%; padding: 0 0 0 0;">
+                <div class="row justify-content-center" style="padding: 0 0 0 0; margin: 0 0 0 0; height: 100%;">
+                    <div class="col-xs-3" onclick="about_content.start(-1)"><h1>Previous</h1></div>
+                    <iframe id="about-doc-1" class="about-content about-active" scrolling="no" style="padding: 0 0 0 0; margin: 0 0 0 0; overflow:hidden; height:75vh;" width="500px" src="https://docs.google.com/document/d/e/2PACX-1vR934I4OTilpG_AcjpU19V878Rf2zWXZZ6mS4xckCAdf3ZoSdLFWdoyRgeVUNAeNRADeWFbg14VDeVY/pub?embedded=true"></iframe>
+                    <!--<iframe id="about-doc-2" class="about-content hidden" scrolling="no" style="padding: 0 0 0 0; margin: 0 0 0 0; overflow:hidden" height="100%" width="500px" src="https://docs.google.com/document/d/e/2PACX-1vQXZQRL_By5Sk38GBoFluMj4-NmNKOypqyAJzWKwySOylvwVAp5wHOIQhuRz6-VLcQVZo2dXTcH85ey/pub?embedded=true"></iframe>-->
+                    <iframe id="about-doc-3" class="about-content hidden" scrolling="no" style="padding: 0 0 0 0; margin: 0 0 0 0; overflow:hidden" height="100%" width="500px" src="https://docs.google.com/document/d/e/2PACX-1vR934I4OTilpG_AcjpU19V878Rf2zWXZZ6mS4xckCAdf3ZoSdLFWdoyRgeVUNAeNRADeWFbg14VDeVY/pub?embedded=true"></iframe>
+                    <iframe id="about-doc-4" class="about-content hidden" scrolling="no" style="padding: 0 0 0 0; margin: 0 0 0 0; overflow:hidden" height="100%" width="500px" src="https://docs.google.com/document/d/e/2PACX-1vQXZQRL_By5Sk38GBoFluMj4-NmNKOypqyAJzWKwySOylvwVAp5wHOIQhuRz6-VLcQVZo2dXTcH85ey/pub?embedded=true"></iframe>
+                    <div class="col-xs-3" onclick="about_content.start(1)"><h1>Next</h1></div>
+                </div>
+
             </div>
 
             <div id="projects-section"class="hidden" style="color: white;  height: 100%;">
@@ -154,10 +166,10 @@
                 </svg>
             </div>
 
-            <div id="blog-section" class="hidden" style="color: white;">
-                Alchemy, the art of destroying creating and transforming matter. FOR WHAT COULD EQUAL THE VALUE OF A HUMAN LIFE.
-                Kono om noi wo keshteshi na mi wa naka jinsei naka ii desho. Kono om noi wo naka i tala NA kem neri ii teru datte
-                naka jinsei naka ii desho im on the wayyyy bunnani nante kako iiwa kang se jung
+            <div id="blog-section" class="hidden" style="color: white; height: 100%;">
+               <div class="row justify-content-center" style="padding-top: 5vh; padding-bottom: 5vh; height: 100%;">
+                    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTXXVIGXxccLHZ_CN1fhYrzAhHUl5KM_vA4TFdVKycdPND0hygCQ3lWLd2ecNgiaaInTCxtR5Lzyi0_/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                </div>
             </div>
 
         </div>
@@ -201,6 +213,9 @@
         </div>
     </div>-->
 <script>
+    function mod(n, m) {
+        return ((n % m) + m) % m;
+    }
     var deg = 0;
     var optionhover = false;
     var optionList = document.getElementsByClassName("about-options");
@@ -213,7 +228,64 @@
     var descriptionText = document.getElementsByClassName("description-text-active")[0];
     var descriptionTextList = document.getElementsByClassName("description-text");
     var skewdeg = 0;
+    var about_content = {
+        aList : document.getElementsByClassName("about-content"),
+        aActive : document.getElementsByClassName("about-active")[0],
+        count : 0,
+        rotate : 0,
+        rotating : false,
+        start : function (forward) {
+            if (!about_content.rotating) {
+                console.log("++++++++++++++++++");
+                with (about_content) {
+                    aActive.onclick = function () {
+                        setTimeout(transformation, 25);
+                    };
+                    transformation(false, forward);
+                }
+            }
 
+        },
+        iterate : function (forward) {
+            with (about_content) {
+                console.log("new count: "+((about_content.count + forward) % about_content.aList.length));
+                about_content.aList[count].classList.remove("about-active");
+                about_content.aList[count].classList.add("hidden");
+                about_content.aList[mod((about_content.count + forward), about_content.aList.length)].classList.add("about-active");
+                about_content.aList[mod((about_content.count + forward), about_content.aList.length)].classList.remove("hidden");
+                aActive = aList[mod((about_content.count + forward), about_content.aList.length)];
+                aActive.onclick = about_content.start();
+                count = mod((about_content.count + forward), about_content.aList.length);
+            }
+        },
+        transformation : function (switched, forward) {
+            about_content.rotating = true;
+            console.log("------------------");
+            with(about_content) {
+                if (!switched){
+                    about_content.aActive.style.transform = "rotateY("+rotate+"deg)";
+                    if (about_content.rotate < 90) {
+                        about_content.rotate++;
+                        setTimeout(() => transformation(false, forward), 25*about_content.rotate/90);
+                    } else {
+                        setTimeout(() => transformation(true, forward), 25*about_content.rotate/90);
+                    }
+                } else {
+                    if(about_content.rotate == 90) {
+                        iterate(forward);
+                        console.log(about_content.count + " " + about_content.rotate)
+                    }
+                    about_content.aActive.style.transform = "rotateY("+rotate+"deg)";
+                    if (about_content.rotate > 0) {
+                        about_content.rotate--;
+                        setTimeout(() => transformation(true, forward), 25);
+                    } else {
+                        about_content.rotating = false;
+                    }
+                }
+            }
+        },
+    };
     var description = {
         dList : document.getElementsByClassName("description-text"),
         dActive : document.getElementsByClassName("description-text-active")[0],
@@ -328,6 +400,7 @@
         }
         //setInterval(skewbyone, 6000);
         description.start();
+        about_content.start(1);
     }
     function gradChange(){
         if (optionhover == false) {
@@ -377,6 +450,7 @@
                 optionList[i].onclick = gradclick;
             }
         }
+
     }
 
 
